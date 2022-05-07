@@ -12,16 +12,16 @@ namespace M2L1HW
         public Result FirstMethod()
         {
             DateTime dateTime = DateTime.Now;
-            Logger.Log = $"{{{dateTime}}}: {{Info}}: {{Start Method: {MethodBase.GetCurrentMethod().Name}}}";
-            Logger.WriteInFile();
+
+            Logger.Logs.Add($"{{{dateTime}}}: {{Info}}: {{Start Method: {MethodBase.GetCurrentMethod().Name}}}");
             return new Result { Status = true };
         }
 
         public Result SecondMethod()
         {
             DateTime dateTime = DateTime.Now;
-            Logger.Log = $"{{{dateTime}}}: {{Warning}}: {{Skipped logic in Method: {MethodBase.GetCurrentMethod().Name}}}";
-            Logger.WriteInFile();
+
+            Logger.Logs.Add($"{{{dateTime}}}: {{Warning}}: {{Skipped logic in Method: {MethodBase.GetCurrentMethod().Name}}}");
             return new Result { Status = true };
         }
 

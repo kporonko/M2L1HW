@@ -28,12 +28,32 @@ namespace M2L1HW
             }
         }
 
-        public static string Log { get; set; }
+#pragma warning disable SA1201 // Elements should appear in the correct order
+        private static List<string> _logs = new List<string>();
+#pragma warning restore SA1201 // Elements should appear in the correct order
+        public static List<string> Logs
+        {
+            get
+            {
+                return _logs;
+            }
+            set
+            {
+                _logs = value;
+            }
+        }
 
+        public static string Log { get; set; }
         public static void WriteInFile()
         {
-            Console.WriteLine(Log);
-            File.WriteAllText("log.txt", Log);
+            string res = string.Empty;
+            for (int i = 0; i < Logs.Count; i++)
+            {
+                res += Logs[i] + "\n";
+            }
+
+            Console.WriteLine(res);
+            File.WriteAllText("log.txt", res);
         }
     }
 }

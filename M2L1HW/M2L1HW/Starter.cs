@@ -15,7 +15,7 @@ namespace M2L1HW
             {
                 Result res = new Result();
                 Random random = new Random();
-                int method = random.Next(1, 3);
+                int method = random.Next(0, 3);
                 switch (method)
                 {
                     case 0:
@@ -33,10 +33,11 @@ namespace M2L1HW
                 {
                     string msg = $"Action failed by a reason: {res.ErrorMessage}";
                     DateTime dateTime = DateTime.Now;
-                    Logger.Log = $"{{{dateTime}}}: {{Error}}: {{{msg}}}";
-                    Logger.WriteInFile();
+                    Logger.Logs.Add($"{{{dateTime}}}: {{Error}}: {{{msg}}}");
                 }
             }
+
+            Logger.WriteInFile();
         }
     }
 }
