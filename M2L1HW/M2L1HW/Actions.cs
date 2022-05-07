@@ -12,7 +12,7 @@ namespace M2L1HW
         public Result FirstMethod()
         {
             DateTime dateTime = DateTime.Now;
-            Logger.Logs.Add($"{{{dateTime}}}: {{Info}}: {{Start Method: {MethodBase.GetCurrentMethod().Name}}}");
+            Logger.Log = $"{{{dateTime}}}: {{Info}}: {{Start Method: {MethodBase.GetCurrentMethod().Name}}}";
             Logger.WriteInFile();
             return new Result { Status = true };
         }
@@ -20,7 +20,7 @@ namespace M2L1HW
         public Result SecondMethod()
         {
             DateTime dateTime = DateTime.Now;
-            Logger.Logs.Add($"{{{dateTime}}}: {{Warning}}: {{Skipped logic in Method: {MethodBase.GetCurrentMethod().Name}}}");
+            Logger.Log = $"{{{dateTime}}}: {{Warning}}: {{Skipped logic in Method: {MethodBase.GetCurrentMethod().Name}}}";
             Logger.WriteInFile();
             return new Result { Status = true };
         }

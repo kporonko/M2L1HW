@@ -33,7 +33,7 @@ namespace M2L1HW
                 {
                     string msg = $"Action failed by a reason: {res.ErrorMessage}";
                     DateTime dateTime = DateTime.Now;
-                    Logger.Logs.Add($"{{{dateTime}}}: {{Error}}: {{{msg}}}");
+                    Logger.Log = $"{{{dateTime}}}: {{Error}}: {{{msg}}}";
                     Logger.WriteInFile();
                 }
             }
