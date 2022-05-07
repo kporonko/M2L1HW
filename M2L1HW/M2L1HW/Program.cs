@@ -6,7 +6,9 @@ namespace M2L1HW
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var logger = Logger.Instance;
+            Starter.Run();
+            Console.Read();
         }
     }
 }
