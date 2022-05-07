@@ -28,12 +28,12 @@ namespace M2L1HW
             }
         }
 
-        public static List<string> Logs { get; set; }
+        public static string Log { get; set; }
 
         public static void WriteInFile()
         {
-            File.WriteAllText("log.txt", Logs[Logs.Count - 1]);
-            Logs.RemoveAt(Logs.Count - 1);
+            Console.WriteLine(Log);
+            File.WriteAllText("log.txt", Log);
         }
     }
 }
