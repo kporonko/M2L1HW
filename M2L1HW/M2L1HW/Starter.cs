@@ -11,6 +11,7 @@ namespace M2L1HW
         public static void Run()
         {
             Actions actions = new Actions();
+            var logger = Logger.Instance;
             for (int i = 0; i < 100; i++)
             {
                 Result res = new Result();
@@ -33,11 +34,11 @@ namespace M2L1HW
                 {
                     string msg = $"Action failed by a reason: {res.ErrorMessage}";
                     DateTime dateTime = DateTime.Now;
-                    Logger.Logs.Add($"{{{dateTime}}}: {{Error}}: {{{msg}}}");
+                    logger.Logs.Add($"{{{dateTime}}}: {{Error}}: {{{msg}}}");
                 }
             }
 
-            Logger.WriteInFile();
+            logger.WriteInFile();
         }
     }
 }

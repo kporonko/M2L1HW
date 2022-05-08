@@ -28,10 +28,9 @@ namespace M2L1HW
             }
         }
 
-        public static List<string> Logs { get; set; } = new List<string>();
+        public List<string> Logs { get; set; } = new List<string>();
 
-        public static string Log { get; set; }
-        public static void WriteInFile()
+        public void WriteInFile()
         {
             string res = string.Empty;
             for (int i = 0; i < Logs.Count; i++)
