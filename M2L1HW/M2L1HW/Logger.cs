@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace M2L1HW
 {
+    /// <summary>
+    /// Singletone pattern is realized.
+    /// </summary>
     public sealed class Logger
     {
         private static Logger instance = null;
@@ -28,8 +31,16 @@ namespace M2L1HW
             }
         }
 
+        /// <summary>
+        /// Gets or sets (idn why the ruleset want me to write that). List of all the logs generated in the program.
+        /// </summary>
+#pragma warning disable SA1609 // Property documentation should have value
         public List<string> Logs { get; set; } = new List<string>();
+#pragma warning restore SA1609 // Property documentation should have value
 
+        /// <summary>
+        /// Method that writes all the logs in file and console.
+        /// </summary>
         public void WriteInFile()
         {
             string res = string.Empty;

@@ -8,6 +8,9 @@ namespace M2L1HW
 {
     internal class Starter
     {
+        /// <summary>
+        /// Method that runs a program by creating a logger instance and generates logs randomly by calling a random method.
+        /// </summary>
         public static void Run()
         {
             Actions actions = new Actions();
