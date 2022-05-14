@@ -31,12 +31,7 @@ namespace M2L1HW
             }
         }
 
-        /// <summary>
-        /// Gets or sets (idn why the ruleset want me to write that). List of all the logs generated in the program.
-        /// </summary>
-#pragma warning disable SA1609 // Property documentation should have value
-        public List<string> Logs { get; set; } = new List<string>();
-#pragma warning restore SA1609 // Property documentation should have value
+        public string[] Logs { get; set; } = new string[100];
 
         /// <summary>
         /// Method that writes all the logs in file and console.
@@ -44,13 +39,26 @@ namespace M2L1HW
         public void WriteInFile()
         {
             string res = string.Empty;
-            for (int i = 0; i < Logs.Count; i++)
+            for (int i = 0; i < Logs.Length; i++)
             {
                 res += Logs[i] + "\n";
             }
 
             Console.WriteLine(res);
             File.WriteAllText("log.txt", res);
+        }
+
+        public static Result CreatingObjects(string type, string name)
+        {
+            DateTime dateTime = DateTime.Now;
+            var logger = Logger.Instance;
+            logger.Logs[Starter.CurrIndex] = $"{{{dateTime}}}: {{{type}}}: {{Start Method: {name}}}";
+            if (type == "Error")
+            {
+                return new Result { Status = false };
+            }
+
+            return new Result { Status = true };
         }
     }
 }

@@ -8,6 +8,8 @@ namespace M2L1HW
 {
     internal class Starter
     {
+        public static int CurrIndex { get; set; } = 0;
+
         /// <summary>
         /// Method that runs a program by creating a logger instance and generates logs randomly by calling a random method.
         /// </summary>
@@ -20,6 +22,7 @@ namespace M2L1HW
                 Result res = new Result();
                 Random random = new Random();
                 int method = random.Next(0, 3);
+                CurrIndex = i;
                 switch (method)
                 {
                     case 0:
@@ -36,8 +39,7 @@ namespace M2L1HW
                 if (!res.Status)
                 {
                     string msg = $"Action failed by a reason: {res.ErrorMessage}";
-                    DateTime dateTime = DateTime.Now;
-                    logger.Logs.Add($"{{{dateTime}}}: {{Error}}: {{{msg}}}");
+                    Logger.CreatingObjects("Error", msg);
                 }
             }
 

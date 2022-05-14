@@ -11,18 +11,12 @@ namespace M2L1HW
     {
         public Result FirstMethod()
         {
-            DateTime dateTime = DateTime.Now;
-            var logger = Logger.Instance;
-            logger.Logs.Add($"{{{dateTime}}}: {{Info}}: {{Start Method: {MethodBase.GetCurrentMethod().Name}}}");
-            return new Result { Status = true };
+            return Logger.CreatingObjects("Info", $"{MethodBase.GetCurrentMethod().Name}");
         }
 
         public Result SecondMethod()
         {
-            DateTime dateTime = DateTime.Now;
-            var logger = Logger.Instance;
-            logger.Logs.Add($"{{{dateTime}}}: {{Warning}}: {{Skipped logic in Method: {MethodBase.GetCurrentMethod().Name}}}");
-            return new Result { Status = true };
+            return Logger.CreatingObjects("Warning", $"{MethodBase.GetCurrentMethod().Name}");
         }
 
         public Result ThirdMethod()

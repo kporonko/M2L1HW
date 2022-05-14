@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace M2L1HW
 {
-    internal class Result
+    public class Result
     {
         public bool Status { get; set; }
         public string ErrorMessage { get; set; }
